@@ -1,0 +1,62 @@
+<html>
+<link rel="stylesheet" href="bookstore.css">
+<script type="text/javascript" src="bookstore.js"></script>
+<head>
+<meta charset="ISO-8859-1">
+<title>Online BookStore</title>
+</head>
+<body>
+	<header>
+		<div class="container p-5 my-5 bg-dark text-white">
+			<h1>
+				<center>Online BookStore</center>
+			</h1>
+			<img
+				src="book-tree-520x520.jpg"
+				class="homeimg" onclick="clickimage()" />
+			<a
+				href="register.html">Register</a>
+			<a
+				href="login.html">Login</a>
+		</div>
+
+
+	</header>
+	<hr>
+	<div>
+		<h2>Add New Book</h2>
+		<form action="#">
+			<div>
+				<label>Category:</label> <input type="text"
+					placeholder="Enter the Category" name="category">
+			</div>
+			<div>
+				<label>Title:</label> <input type="text"
+					placeholder="Enter the Book Title" name="title">
+			</div>
+			<div>
+				<label>Author:</label> <input type="text"
+					placeholder="Enter the Book Author" name="author">
+			</div>
+			<div>
+				<label>ISBN:</label> <input type="text"
+					placeholder="Enter the Book ISBN" name="isbn">
+			</div>
+			<div>
+				<label>Publisher:</label> <input type="text"
+					placeholder="Enter the Publisher" name="publisher">
+			</div>
+			<div>
+				<label>Edition:</label> <input type="text"
+					placeholder="Enter the Book Edition" name="edition">
+			</div>
+
+
+			<button type="submit" class="btn btn-default">Submit</button>
+
+
+		</form>
+	</div>
+</body>
+
+</html>
