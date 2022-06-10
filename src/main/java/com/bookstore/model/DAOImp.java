@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -19,6 +20,7 @@ public class DAOImp
 	private static Statement stm = null;
 	private static ResultSet rs = null;
 	private static String sql = null;
+	private ResultSetMetaData rsmd = null;
 	
 	private PreparedStatement pStatement =null;
 	

@@ -1,50 +1,66 @@
 <html>
+
+<head>
+<link rel="stylesheet" href="bookstore.css">
+<script type="text/javascript" src="bookstore.js"></script>
+<meta charset="ISO-8859-1">
+<title>Online BookStore</title>
+</head>
+
+
+<body>
+	<header class="header">
+	<div class="btn1">
+
+		<img src="book-tree-520x520.jpg" class="homeimg" />
+		<h1>
+			<center>Online BookStore</center>
+		</h1>
+		
+		<table style=margin-left:1610px>
+		<tr>
+			<th><a href="home.html"><button class="mybtn">Home</button></a></th>
+			<form action="logout"><th>
+			<input type="submit" value="logout" class="mybtn">
+			</th></form>
+			<th><a href="cart.html"><button class="mybtn">Go to Cart</button></a></th>
+		
+		</tr>
+		</table>
+		</div>
+	</header>
+
+	<hr>
 	
-		<head>
-	      <link rel="stylesheet" href="bookstore.css">
-        <script type="text/javascript" src="bookstore.js"></script>
-          <meta charset="ISO-8859-1">
-			<title>Online BookStore</title>
-		</head>
+	
+		<form action="data" method="post">
+		<div class="tbl-header">
+			<table class="list_table" cellpadding="0" cellspacing="0" border="0">
+			<thead>
+				<tr>
+					<th>Category</th>
+					<th>Title</th>
+					<th>Author</th>
+					<th>ISBN</th>
+					<th>Publisher</th>
+					<th>Edition</th>
+					<th>Price</th>
+					<th>Add to Cart</th>
+				</tr>
+			<thead>
 
-		
-		<body class="background">
-			<header class="header">
-				<div class="btn1">
-			<img
-				src="book-tree-520x520.jpg"
-				class="homeimg" onclick="clickimage()" />
-
-			<h1>
-				<center>Online BookStore</center>
-			</h1>
-			      
-					<a href="home.html" ><button class="mybtn">Home</button></a>
-	                 
-				      <a href="/logout" class="mybtn">Logout</a>
-					<a href="cart.html" ><button class="mybtn">Go to Cart</button></a>
+			</table>
+			 <div class="tbl-content">
+             <table class="list_table" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+      
+      </tbody>
+    </table>
+  </div>
 				</div>
-				
-			</header>
-			
-			<hr>
-			<form action="data" method="post">
-				<div>
-					<table class = "books">
-						<tr>
-							<th>Category</th>
-							<th>Title</th>
-							<th>Author</th>
-							<th>ISBN</th>
-							<th>Publisher</th>
-							<th>Edition</th>
-							<th>Price</th>
-							<th>Add to Cart</th>
-						</tr>
-					
-					</table>
-					</div>
-				</form>
-			</body>
-		
-	</html>
+			</form>
+	
+	
+</body>
+
+</html>

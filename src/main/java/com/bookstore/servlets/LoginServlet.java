@@ -12,12 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bookstore.controller.Controller;
+import com.bookstore.entity.UserAccount;
 import com.bookstore.helper.RegisterHelper;
 
 /**
  * Servlet implementation class loginServlet
  */
-@WebServlet("/LoginServlet")
+//@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		response.setContentType("text/html;charset=UTF-8");
 		
 		String appName = getServletContext().getInitParameter("appName");
 		String pageName = getServletConfig().getInitParameter("pageName");
@@ -47,33 +48,30 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		RegisterHelper helper = new RegisterHelper();
 
-		
-		RequestDispatcher success = request.getRequestDispatcher("home");
-		RequestDispatcher admin = request.getRequestDispatcher("admin.html");
-		RequestDispatcher failure = request.getRequestDispatcher("login.html");
+		HttpSession session = request.getSession();
+		RequestDispatcher success = request.getRequestDispatcher("../JSP/home.jsp");
+		RequestDispatcher admin = request.getRequestDispatcher("../JSP/admin.jsp");
+	
 		
 		
 		if ((new Controller().login(username, pswd)) && (helper.isPwdValid(username).equals("admin")))
 		{
-			
+			session.setAttribute("admin", "admin");
 			admin.forward(request, response);
 		
 		}else if (new Controller().login(username, pswd) ) {
 			
 	
+		
+			//out.write("Login successfull");
 			
-			out.write("Login successfull");
-			HttpSession session = request.getSession();
-			session.setAttribute("username", username);
+			session.setAttribute("logged", username);
 			//success.forward(request, response);
-			response.sendRedirect("home");
+			success.forward(request, response);
+			
 			
 		}
-		else
-		{
-			
-			failure.include(request, response);
-		}
+	
 	}
 
 	/**

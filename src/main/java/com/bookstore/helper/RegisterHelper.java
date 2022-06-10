@@ -20,6 +20,7 @@ public class RegisterHelper {
 		String sql = "SELECT password, usertype FROM register where username = ?";
 		String password = null;
 		String type = null;
+		UserAccount uAccount=null;
 
 		try {
 
@@ -42,7 +43,7 @@ public class RegisterHelper {
 	
 	
 	public boolean registerAccount(UserAccount userAccount) {
-		String  sql= "INSERT into register(name, age, username,password, email,phone,address) VALUES(?,?,?,?,?,?,?)";
+		String  sql= "INSERT into register(name, age, username,password, email,phone) VALUES(?,?,?,?,?,?)";
 		try {
 			PreparedStatement psmt = conn.prepareStatement(sql);
 			psmt.setString(1, userAccount.getName());
@@ -51,7 +52,7 @@ public class RegisterHelper {
 			psmt.setString(4, userAccount.getPassword());
 			psmt.setString(5, userAccount.getEmail());
 			psmt.setString(6, userAccount.getPhone());
-			psmt.setString(7, userAccount.getAddress());
+			
 			
 			if(daoImp.insertData(psmt)>0)
 				return true;

@@ -15,7 +15,7 @@ import com.bookstore.controller.Controller;
 /**
  * Servlet implementation class RegisterServlet
  */
-@WebServlet("/RegisterServlet")
+//@WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,18 +44,18 @@ public class RegisterServlet extends HttpServlet {
 		String pswRepeat = request.getParameter("psw-repeat");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
-		String address = request.getParameter("address");
+	
 		
 		
-		RequestDispatcher success = request.getRequestDispatcher("home");
-		RequestDispatcher failure = request.getRequestDispatcher("register.html");
+		RequestDispatcher success = request.getRequestDispatcher("login");
+		RequestDispatcher failure = request.getRequestDispatcher("register.jsp");
 				
 				
-		if(new Controller().register(name, age, username, pswd, pswRepeat, email, phone, address)) {
+		if(new Controller().register(name, age, username, pswd, pswRepeat, email, phone)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
 			
-			response.sendRedirect("home");
+			response.sendRedirect("login.jsp");
 			
 		}
 		else {

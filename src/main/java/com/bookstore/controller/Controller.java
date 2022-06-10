@@ -16,8 +16,10 @@ public class Controller {
 
 	public boolean login(String userName, String password) {
 		String result= helper.isPwdValid(userName);
-		if (result.equals(password) && result!=null) {
+		System.out.println(result);
+		if (result!=null && result.equals(password) ) {
 			CacheMemory.loggedUsername = userName;
+			
 			return true;
 		}
 	
@@ -28,7 +30,7 @@ public class Controller {
 
 
 	public boolean register(String name, String age, String userName, String password, String cfPassword, String email,
-			String phone, String address) {
+			String phone) {
 		if (password.equals(cfPassword)) {
 			UserAccount userAccount = new UserAccount();
 			userAccount.setName(name);
@@ -37,7 +39,7 @@ public class Controller {
 			userAccount.setPassword(password);
 			userAccount.setEmail(email);
 			userAccount.setPhone(phone);
-			userAccount.setAddress(address);
+			
 			return helper.registerAccount(userAccount);
 		} else {
 			return false;

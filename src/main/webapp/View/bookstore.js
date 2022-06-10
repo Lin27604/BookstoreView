@@ -1,8 +1,6 @@
 
 
-function clickimage() {
-	       location.href = "View/home.html";
-}
+
 
 function cancelBooking() {
   history.go(-1);
@@ -85,6 +83,7 @@ function validEmail() {
 		document.getElementById("email_format").innerHTML="Valid email"
 		document.getElementById("email_format").style.color = "green";
 		document.getElementById('create').disabled = flase;
+		document.getElementById('create').style.opacity = (1);
 	} else {
 		document.getElementById("email_format").innerHTML="Invalid email";
 		document.getElementById("email_format").style.color = "red";
@@ -113,11 +112,15 @@ function cvvFormat() {
 	let cvv = document.getElementById("cvv");
 	let cvvLength = cvv.innerHTML.length;
 	let format = /^[0-9]{0,3}$/;
-	if((!cvv.value.match(format)) || (!cvvLength ===3 ) ) {
+	if((!cvv.value.match(format)) || (!cvvLength ===3 )) {
 		document.getElementById("wrong_cvv").style.color = "red";
 		document.getElementById("wrong_cvv").innerHTML="Invalid CVV";
+		document.getElementById('check_out').disabled = true;
+		document.getElementById('check_out').style.opacity = (0.4);
 	}else {
 		document.getElementById("wrong_cvv").innerHTML="";
+		document.getElementById('check_out').disabled = false;
+		document.getElementById('check_out').style.opacity = (1);
 	}
 }
 
@@ -132,14 +135,25 @@ function creditNum() {
 		document.getElementById("invalid_card").innerHTML="";
 		document.getElementById("ccnum").style.color="green";
 		document.getElementById('check_out').disabled = false;
-		document.getElementById('create').style.opacity = (1);
+		document.getElementById('check_out').style.opacity = (1);
 		
 	}else{
 		document.getElementById("invalid_card").innerHTML="Please enter a valid credit card number";
 	    document.getElementById("invalid_card").style.color="red";
 		document.getElementById('check_out').disabled = true;
-		document.getElementById('create').style.opacity = (0.4);
+		document.getElementById('check_out').style.opacity = (0.4);
 	}
 	
 }
+
+function pay(){
+	
+	      
+           alert("Payment Complete! You will be redirected to Home Page");
+           window.location.href = "home.jsp";
+}
+$(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize()
 		

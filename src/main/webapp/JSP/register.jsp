@@ -1,25 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-
 <html>
-
 	<head>
 		<title>Online BookStore</title>
-	<link rel="stylesheet" href="bookstore.css">
-<script type="text/javascript" src="bookstore.js"></script>
-		 
+<link rel="stylesheet" href="../View/bookstore.css">
+<script type="text/javascript" src="../View/bookstore.js"></script>
+<meta charset="ISO-8859-1">
+		</head> 
 	<body>
          <header class="header">
 				<div class="btn1">
 				    <img
-				src="book-tree-520x520.jpg"
+				src="../View/book-tree-520x520.jpg"
 				class="homeimg" onclick="clickimage()" />
 				
 					<h1>
 						<center>Online BookStore</center>
 					</h1>
-					<a href="..\index.html" ><button class="mybtn">Home</button></a>
+					<a href="..\index.jsp" ><button class="mybtn">Home</button></a>
 					
-					<a href="login.html" ><button class="mybtn">Login</button></a>
+					<a href="login.jsp" ><button class="mybtn">Login</button></a>
 					
 				</div>
 				
@@ -70,10 +71,7 @@
 					</label>
 					<input type="text" placeholder="000-000-0000" name="phone" class="input" id="phone" onkeyup="phoneFormat()" />
 					<span id="phone_format"></span>
-					<label for="address">
-						<b>Address</b>
-					</label>
-					<input type="text" placeholder="Enter Address" name="address" class="input"/>
+				
 					
 					<input type="submit" value="Submit" class="mybtn" onclick= "register()" id="create" /> <input type="reset" value="Reset" class="mybtn"/>
 					
@@ -83,7 +81,7 @@
 					
 					
 					<div>
-						<p>Already have an account? <a href="login.html">Sign in</a>.</p>
+						<p>Already have an account? <a href="login.jsp">Sign in</a>.</p>
 					</div>
 		</form>
 		</div>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class indexServlet
  */
-@WebServlet("/indexServlet")
+//@WebServlet("/indexServlet")
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -39,20 +39,20 @@ public class HomeServlet extends HttpServlet {
 		
 		
 		HttpSession session = request.getSession();
-		
-		if(session.getAttribute("username") != null)
+	
+		if(session.getAttribute("logged") != null)
 		{
 			response.setContentType("text/html");
 			
 			String username = request.getParameter("user");
 			String pswd = request.getParameter("psw");
-			//response.sendRedirect("home");
+			response.sendRedirect("/JSP/home.jsp");
 //			PrintWriter out = response.getWriter();
 //			out.write("Entered values are " + username + " " + pswd);
 			
 		}
 		else
-			response.sendRedirect("login.html");
+			response.sendRedirect("login.jsp");
 		
 	
 		

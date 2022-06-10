@@ -1,6 +1,7 @@
 package com.bookstore.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LogoutServlet
  */
-@WebServlet("/LogoutServlet")
+@WebServlet("/JSP/logout")
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,16 +32,17 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		 HttpSession session = request.getSession(false);
-	        if (session != null) {
-	            session.removeAttribute("uname");
-	             
-	            RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
-	            dispatcher.forward(request, response);
-	        }
-	}
+		response.setContentType("text/html"); 
+		 PrintWriter out=response.getWriter(); 
+		 
+		 HttpSession session = request.getSession();
+		 session.invalidate(); 
+		 request.getRequestDispatcher("index.jsp").include(request, response);
+	     System.out.println(request.getContextPath());
+		 out.print("You are successfully logged out!");  
+		 
 
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

@@ -34,23 +34,7 @@ public class CustomerController implements CustomerImp{
 	@Override
 	public void addToCart(int id) {
 	
-		carts=cHelper.addToCart(id);
 		
-		//int sum=0;
-		//for (int i= 0; i<carts.size();i++) {
-			
-			
-		//}
-		if (carts !=null) {
-		    for (Cart cart : carts) {
-		    	
-		    	System.out.println(carts.toString());
-			}
-			
-			System.out.println("Book added to cart");
-			
-		}else
-			System.out.println("Failed to added to cart");
 	
 		
 		
@@ -73,12 +57,12 @@ public class CustomerController implements CustomerImp{
 
 	@Override
 	public void purchase(int id) {
-		if(cHelper.insertIntoHistory(id)> 0) {
-			System.out.println("Insert into purchase history successfully.");
-		}
-		else {
-			System.out.println("failed to insert...");
-		}
+//		if(cHelper.insertIntoHistory(id)> 0) {
+//			System.out.println("Insert into purchase history successfully.");
+//		}
+//		else {
+//			System.out.println("failed to insert...");
+//		}
 	}
 
 

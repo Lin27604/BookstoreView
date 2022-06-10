@@ -6,15 +6,18 @@
 	font-family: Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
+	padding: 3px;
 }
 
 .books td, .books th {
-	border: 1px solid #ddd;
-	padding: 8px;
+	border: 1px solid rgb(128, 128, 128);
+	padding: 3px;
+	font-weight: 300;
+	font-size: 20px;
 }
 
 .books tr:nth-child(even) {
-	background-color: #f2f2f2;
+	background-color: #808080;
 }
 
 .books tr:hover {
@@ -22,16 +25,20 @@
 }
 
 .books th {
-	padding-top: 12px;
-	padding-bottom: 12px;
-	text-align: left;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	text-align: center;
 	background-color: #04AA6D;
-	color: white;
+	color: rgb(0, 0, 64);
 }
 
-.background {
-	background-image: radial-gradient(circle, #053237, #005d5e, #008b7a, #00bb8b, #12eb8e);
-	;
+@import
+	url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+body {
+	background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+	background: linear-gradient(to right, #25c481, #25b7c4);
+	font-family: 'Roboto', sans-serif;
 }
 
 .header {
@@ -41,12 +48,14 @@
 	color: crimson;
 	font-family: Arial;
 	font-size: 30px;
-	border: 3px solid blue;
+	border: 2px solid blue;
 }
 
 .btn1 {
 	text-align: right;
 	border: 1;
+	padding-bottom: 0px;
+	margin-right: 10px;
 }
 
 .mybtn {
@@ -76,6 +85,7 @@
 }
 
 .homeimg {
+	padding: 0px;
 	position: absolute;
 	left: 10px;
 	cursor: pointer;
@@ -99,9 +109,191 @@
 	outline: none;
 }
 
+.insert {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+.insert:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
 .wrapper {
 	position: absolute;
 	width: 40%;
 	top: 22%;
 	left: 25%;
+}
+
+.d1 {
+	display: -ms-flexbox; /* IE10 */
+	display: flex;
+	-ms-flex-wrap: wrap; /* IE10 */
+	flex-wrap: wrap;
+	margin: 0 -16px;
+	margin-top: 3%;
+	margin-left: 1%
+}
+
+label {
+	margin-bottom: 10px;
+	display: block;
+}
+
+.col1 {
+	-ms-flex: 40%; /* IE10 */
+	flex: 50%;
+	display: inline-block;
+}
+
+.col2 {
+	-ms-flex: 55%; /* IE10 */
+	flex: 55%;
+	display: inline-block;
+}
+
+.col1, .col2 {
+	padding: 0 16px;
+}
+
+.list_table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.tbl-header {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.tbl-content {
+	height: 300px;
+	overflow-x: auto;
+	margin-top: 0px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.list_table th {
+	padding: 20px 15px;
+	text-align: left;
+	font-weight: 500;
+	font-size: 12px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.tbl-header td {
+	padding: 15px;
+	text-align: left;
+	vertical-align: middle;
+	font-weight: 300;
+	font-size: 12px;
+	color: #fff;
+	border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+	text-align: center;
+	vertical-align: middle;
+	padding: .37em .37em;
+	cursor: pointer;
+}
+
+.btn-primary {
+	color: white;
+	background-color: #56CCF2;
+	border: none;
+	border-radius: .3em;
+	font-weight: bold;
+}
+
+.btn-danger {
+
+	color: white;
+	background-color: #EB5757;
+	border: none;
+	border-radius: .3em;
+	font-weight: bold;
+	font-size: 10px;
+	margin-top:1px;
+}
+
+span {
+	cursor: pointer;
+}
+
+.number {
+	margin: 100px;
+}
+
+.minus, .plus {
+	width: 20px;
+	height: 20px;
+	background: #f2f2f2;
+	border-radius: 4px;
+	padding: 8px 5px 8px 5px;
+	border: 1px solid #ddd;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.qu {
+	height: 34px;
+	width: 100px;
+	text-align: center;
+	font-size: 26px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #3e8e41;
 }

@@ -11,8 +11,8 @@ public class BookController {
 	Scanner scanner = new Scanner(System.in);
 	String result = "";
 
-	public String insertBook(String category, String title, String author, String ISBN, String publisher,
-			String Edition, Double price) {
+	public boolean insertBook(String category, String title, String author, String ISBN, String publisher,
+			String Edition, double price) {
 		Book book = new Book();
 		book.setCategory(category);
 		book.setTitle(title);
@@ -23,12 +23,12 @@ public class BookController {
 		book.setPrice(price);
 
 		if (helper.insert(book) > 0) {
-			result = "Insert new book successfully.";
+			return true;
 
 		} else {
-			result = "Failed to insert a new book.";
+			return false;
 		}
-		return result;
+	
 
 	}
 
@@ -45,16 +45,16 @@ public class BookController {
 
 	}
 
-	public String editBook(int id, Double price) {
-
-		if (helper.edit(id, price) > 0) {
-			result = "Update successfully...";
-
-		} else {
-			result = "Failed to Update the price.";
-
-		}
-		return result;
-	}
-
+//	public String editBook(int id, Double price) {
+//
+//		if (helper.edit(id, price) > 0) {
+//			result = "Update successfully...";
+//
+//		} else {
+//			result = "Failed to Update the price.";
+//
+//		}
+//		return result;
+//	}
+//
 }

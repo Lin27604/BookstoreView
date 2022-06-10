@@ -1,20 +1,23 @@
 package com.bookstore.entity;
 
 public class Book {
-    private String category;
+	private int id;
+ 
+
+	private String category;
     private String title;
     private String author;
     private String ISBN;
     private String publisher;
     private String editionNumber;
-    private Double price;
+    private double price;
 
     public Book() {
 
         // TODO Auto-generated constructor stub
     }
 
-    public Book(String category, String title, String author, String iSBN, String publisher, String editionNumber, Double price) {
+    public Book(String category, String title, String author, String iSBN, String publisher, String editionNumber, double price) {
         this.category = category;
         this.title = title;
         this.author = author;
@@ -24,7 +27,28 @@ public class Book {
         this.price = price;
     }
 
-    public String getCategory() {
+
+    public Book(int id, String category, String title, String author, String iSBN, String publisher,
+			String editionNumber, double price) {
+		super();
+		this.id = id;
+		this.category = category;
+		this.title = title;
+		this.author = author;
+		ISBN = iSBN;
+		this.publisher = publisher;
+		this.editionNumber = editionNumber;
+		this.price = price;
+	}
+    public int getId() {
+ 		return id;
+ 	}
+
+ 	public void setId(int id) {
+ 		this.id = id;
+ 	}
+
+	public String getCategory() {
         return category;
     }
 
@@ -72,12 +96,12 @@ public class Book {
         this.editionNumber = editionNumber;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPrice(double price) {
+        this.price =price;
     }
 
     @Override
