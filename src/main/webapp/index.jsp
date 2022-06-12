@@ -98,7 +98,7 @@
 						</td>
 
 						<td>
-							<a href="JSP/register.jsp" class="btn btn-primary">ADD TO Cart</a>
+							<a href="JSP/login.jsp" class="btn btn-primary">ADD TO Cart</a>
 							
 							
 						</td>

@@ -7,13 +7,13 @@
 <!DOCTYPE html>
 <html>
 
-
+<% StringBuffer path = new StringBuffer(request.getContextPath()); %>
 <head>
 <title>Online BookStore</title>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="../View/bookstore.css">
-<script type="text/javascript" src="../View/bookstore.js"></script>
-<link rel="stylesheet" href="../View/payment.css">
+<link rel="stylesheet" href="<%= path %>/View/bookstore.css">
+<script type="text/javascript" src="<%= path %>/View/bookstore.js"></script>
+<link rel="stylesheet" href="<%= path %>/View/payment.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -25,11 +25,11 @@
 				<center>Online BookStore</center>
 			</h1>
 			<img
-				src="../View/book-tree-520x520.jpg"
+				src="<%= path %>/View/book-tree-520x520.jpg"
 				class="homeimg"  />
 
 		
-			<a href="home.jsp"><button
+			<a href="<%= path %>/JSP/home.jsp"><button
 					class="mybtn">Home</button></a> 
 				
 			

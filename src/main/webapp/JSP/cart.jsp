@@ -9,23 +9,24 @@
     
 <!DOCTYPE html>
 <html>
+<% StringBuffer path = new StringBuffer(request.getContextPath()); %>
 <head>
 <meta charset="ISO-8859-1">
 <title>Home</title>
-<link rel="stylesheet" href="../View/bookstore.css">
-<script type="text/javascript" src="../View/bookstore.js"></script>
-<link rel="stylesheet" href="../View/cart.css">
+<link rel="stylesheet" href="<%= path %>/View/bookstore.css">
+<script type="text/javascript" src="<%= path %>/View/bookstore.js"></script>
+<link rel="stylesheet" href="<%= path %>/View/cart.css">
 </head>
 	<body>
 		<header class="header">
 			<div class="btn1" >
 			<img
-				src="../View/book-tree-520x520.jpg"
+				src="<%= path %>/View/book-tree-520x520.jpg"
 				class="homeimg"  />
 				<h1>
 					<center>Online BookStore</center>
 				</h1>
-				<a href="../JSP/home.jsp" ><button class="mybtn">Home</button></a>
+				<a href="<%= path %>/JSP/home.jsp" ><button class="mybtn">Home</button></a>
 			</div>
 		</header>
 		<hr>
@@ -64,7 +65,7 @@
 				%>
 				<tr>
 					<td><%=c.getTitle()%></td>
-					<td><%= dcf.format(c.getPrice())%></td>
+					<td><%= c.getPrice()%></td>
 				
 					<td>
 						<form action="order" method="post" class="number">
@@ -81,7 +82,7 @@
 			</tbody>
 		</table>
 		<div class="d-flex py-3"><h3>Total Price: $ ${(total>0)?dcf.format(total):0} </h3>
-		<a href="billing.jsp" ><button class="btn btn-primary btn-purchase" type="button">Check Out</a>
+		<a href="<%= path %>/JSP/billing.jsp" ><button class="btn btn-primary btn-purchase" type="button">Check Out</a>
             <button type="button" onclick="cancelBooking()" id="cancelButton"class="btn btn-primary btn-purchase">Back</button>
 	</div>
 		

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ErrorServlet
  */
-@WebServlet("/ErrorServlet")
+//@WebServlet("/ErrorServlet")
 public class ErrorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,8 +28,9 @@ public class ErrorServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		StringBuffer path = new StringBuffer(request.getContextPath());
 		response.setContentType("text/html");
-		response.sendRedirect("View/error.html");
+		response.sendRedirect(path+"/View/error.html");
 	}
 
 	/**

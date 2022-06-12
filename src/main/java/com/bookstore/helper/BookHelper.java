@@ -191,7 +191,7 @@ public class BookHelper implements AdminImp {
 		    	row.setISBN( rst.getString("ISBN"));
 		    	row.setPublisher( rst.getString("publisher"));
 		    	row.setEditionNumber(rst.getString("editionNumber"));
-		    	row.setPrice( rst.getDouble("price"));
+		    	row.setPrice( rst.getString("price"));
 		    	
 		    }
 		    

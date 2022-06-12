@@ -40,7 +40,7 @@ public class UpdateServlet extends HttpServlet {
 		  PrintWriter out = response.getWriter();
 		  DAOImp daoImp = new DAOImp();
 			Connection conn = daoImp.getConn();
-		  String id = request.getParameter("u");
+		  String id = request.getParameter("id");
 		  String category = request.getParameter("category");
 	      String title = request.getParameter("title");
 	      String author = request.getParameter("author");
@@ -48,13 +48,13 @@ public class UpdateServlet extends HttpServlet {
 	      String publisher = request.getParameter("publisher");
 	      String edition = request.getParameter("edition");
 	      String price=request.getParameter("price");
-	      
+	      System.out.println(id);
 	      System.out.println(price);
 	      
 	     
 	      if(category!=null &&title!=null && author!=null && isbn!=null && publisher!=null && edition!=null && price!=null){
 	    	  
-	  		String sql= "UPDATE book SET category = ?, title = ?, author = ?, ISBN = ?, publisher= ?, editionNumber = ?, price= ? WHERE id = '"+id+"'";
+	  		String sql= "UPDATE book SET category = ?, title = ?, author = ?, ISBN = ?, publisher= ?, editionNumber = ?, price= ? WHERE id = ?";
 		
 	  		try {
 				
@@ -62,7 +62,7 @@ public class UpdateServlet extends HttpServlet {
 				PreparedStatement psmt = conn.prepareStatement(sql);				
 			   // psmt.setInt(1, id);
 //			    updateRow = daoImp.updateData(psmt);
-				
+				psmt.setString(1,id);
 				psmt.setString(1, category);
 				psmt.setString(2, title);
 				psmt.setString(3, author);
@@ -70,7 +70,9 @@ public class UpdateServlet extends HttpServlet {
 				psmt.setString(5, publisher);
 				psmt.setString(6, edition);
 				psmt.setString(7, price);
+				 psmt.setString(8,id);
                 daoImp.updateData(psmt);
+               
                 response.sendRedirect("../JSP/admin.jsp");
 	  		}
 				catch (SQLException e) {

@@ -44,7 +44,7 @@ public class CheckOutServlet extends HttpServlet {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         HttpSession session = request.getSession();
-        
+        StringBuffer path = new StringBuffer(request.getContextPath());
         String user=(String) session.getAttribute("logged");
         ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
         OrderHelper oHelper =new OrderHelper();
@@ -59,13 +59,13 @@ public class CheckOutServlet extends HttpServlet {
 				if(!result) break;
         	}
         	cart_list.clear();
-			response.sendRedirect("order.jsp");
+			response.sendRedirect(path+"/JSP/order.jsp");
 
         }else {
 			if(user==null) {
-				response.sendRedirect("login.jsp");
+				response.sendRedirect(path+"/JSP/login.jsp");
 			}
-			response.sendRedirect("cart.jsp");
+			response.sendRedirect(path+"/JSP/cart.jsp");
 		}
 
 	

@@ -16,7 +16,7 @@ import com.bookstore.entity.Cart;
 /**
  * Servlet implementation class AddToCartServlet
  */
-@WebServlet("/JSP/add-to-cart")
+@WebServlet("/add-to-cart")
 public class AddToCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,6 +36,7 @@ public class AddToCartServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		StringBuffer path = new StringBuffer(request.getContextPath());
 		try {
 			
 			 ArrayList<Cart> cartList = new ArrayList<>();
@@ -53,7 +54,7 @@ public class AddToCartServlet extends HttpServlet {
                  out.println("alert('Item added to cart...');"); 
                  out.println("</script>");
 	        	// out.println("Session add...");
-                   response.sendRedirect("home.jsp");
+                 response.sendRedirect(path+"/JSP/home.jsp");
           
 	        	 
 	         }else {
@@ -66,14 +67,14 @@ public class AddToCartServlet extends HttpServlet {
 	                        exist = true;
 	                        out.println("<script type=\"text/javascript\">"); 
 	                        out.println("alert('Item already in the cart...');"); 
-	                        out.println("location='home.jsp';"); 
+	                        out.println("location='/JSP/home.jsp';"); 
 	                        out.println("</script>"); 
 	                    }
 	                }
 
 	                if (!exist) {
 	                    cartList.add(cart);
-	                    response.sendRedirect("home.jsp");
+	                    response.sendRedirect(path+"/JSP/home.jsp");
 	                }
 	         }
 		}catch (Exception e) {

@@ -12,7 +12,7 @@ public class BookController {
 	String result = "";
 
 	public boolean insertBook(String category, String title, String author, String ISBN, String publisher,
-			String Edition, double price) {
+			String Edition, String price) {
 		Book book = new Book();
 		book.setCategory(category);
 		book.setTitle(title);

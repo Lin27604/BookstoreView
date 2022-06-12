@@ -9,17 +9,18 @@
 </head>
 <body>
    <% 
+    StringBuffer path = new StringBuffer(request.getContextPath());
       String category = request.getParameter("category");
       String title = request.getParameter("title");
       String author = request.getParameter("author");
       String isbn= request.getParameter("isbn");
       String publisher = request.getParameter("publisher");
       String edition = request.getParameter("edition");
-      Double price =Double.parseDouble(request.getParameter("price"));
+      String price =request.getParameter("price");
       
       BookController bookController= new BookController();
       if(bookController.insertBook(category, title, author, isbn, publisher, edition, price)){
-    	  response.sendRedirect("../JSP/admin.jsp");
+    	  response.sendRedirect(path+"/JSP/admin.jsp");
     	 
    }
       

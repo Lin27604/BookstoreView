@@ -112,7 +112,7 @@ public class CustomerHelper {
                         Cart row = new Cart();
                         row.setId(rst.getInt("id"));
                         row.setTitle(rst.getString("title"));
-                        row.setPrice(Double.parseDouble(rst.getString("price"))*item.getQuantity());
+                        row.setPrice(String.valueOf(Double.parseDouble(rst.getString("price"))*item.getQuantity()));
                         row.setQuantity(item.getQuantity());
                         book.add(row);
                     }
@@ -171,27 +171,27 @@ public boolean insertmessage(String name, String email, String comment, String d
 	return result;
 	
 }
-public void getMessage() {
-	sql = "select * from message";
-	PreparedStatement psmt;
-	try {
-		psmt = conn.prepareStatement(sql);
-		ResultSet rst = daoImp.selectData(psmt);
-		while (rst.next()) {
-			rst.getString("name");
-			rst.getString("email");
-			rst.getString("Comment");
-			rst.getString("date");
-			
-		}
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+//public void getMessage() {
+//	sql = "select * from message";
+//	PreparedStatement psmt;
+//	try {
+//		psmt = conn.prepareStatement(sql);
+//		ResultSet rst = daoImp.selectData(psmt);
+//		while (rst.next()) {
+//			rst.getString("name");
+//			rst.getString("email");
+//			rst.getString("Comment");
+//			rst.getString("date");
+//			
+//		}
+//	} catch (SQLException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
 
-	
-	
-}
+//	
+//	
+//}
 
 
 }

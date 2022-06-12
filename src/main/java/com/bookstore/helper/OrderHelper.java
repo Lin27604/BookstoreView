@@ -15,7 +15,7 @@ public class OrderHelper {
 	public boolean insertOrder(Order order) {
         boolean result = false;
         try {
-           String sql = "insert into order (buyer, book, quantity, date) values(?,?,?,?)";
+           String sql = "insert into order_tb (buyer, book, quantity, date) values(?,?,?,?)";
            PreparedStatement psmt = conn.prepareStatement(sql);
             psmt.setString(1, order.getUser());
             psmt.setInt(2, order.getBid());
@@ -31,7 +31,7 @@ public class OrderHelper {
 	public List<Order> orderList(String user){
 		List<Order> list = new ArrayList<>();
 		try {
-	           String sql = "select * from order where buyer=?";
+	           String sql = "select * from order_tb where buyer=?";
 	           PreparedStatement psmt = conn.prepareStatement(sql);
 	           psmt.setString(1, user);
 	           ResultSet rst = daoImp.selectData(psmt);
@@ -42,7 +42,7 @@ public class OrderHelper {
 	        	   Book book=bookHelper.getOneBook(bId);
 	        	   order.setUser(user);
 	        	   order.setTitle(book.getTitle());
-	        	   order.setPrice(book.getPrice()*rst.getInt("quantity"));
+	        	   order.setPrice(String.valueOf(Double.parseDouble( book.getPrice())*rst.getInt("quantity")));
 	        	   order.setQunatity(rst.getInt("quantity"));
 	        	   order.setDate(rst.getString("date"));
 	        	   order.setStatus(rst.getString("status"));
@@ -56,4 +56,36 @@ public class OrderHelper {
 		return list;
 
 }
+	public List<Order> AllorderList(){
+		List<Order> list = new ArrayList<>();
+		try {
+	           String sql = "select * from order_tb WHERE NOT (Status <=> 'Completed')";
+	           PreparedStatement psmt = conn.prepareStatement(sql);
+	           
+	           ResultSet rst = daoImp.selectData(psmt);
+	           while(rst.next()) {
+	        	   Order order = new Order();
+	        	   BookHelper bookHelper = new BookHelper();
+	        	   int bId= rst.getInt("book");
+	        	   Book book=bookHelper.getOneBook(bId);
+	        	   order.setId(rst.getInt("id"));
+	        	   order.setUser(rst.getString("buyer"));
+	        	   order.setTitle(book.getTitle());
+	        	   order.setPrice(String.valueOf(Double.parseDouble( book.getPrice())*rst.getInt("quantity")));
+	        	   order.setQunatity(rst.getInt("quantity"));
+	        	   order.setDate(rst.getString("date"));
+	        	   order.setStatus(rst.getString("status"));
+	        	   list.add(order);
+	        	   
+	           }
+		
+	}catch (Exception e) {
+		// TODO: handle exception
+	}
+		return list;
+
+}
+	
+	
+	
 }

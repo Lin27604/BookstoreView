@@ -51,14 +51,14 @@
 						placeholder="Enter the Book Edition" name="edition" class="insert" value="<%=rst.getString("editionNumber")%>"/>
 				</div>
 				<div>
-					<label>Price:</label> <input type="number"
+					<label>Price:</label> <input type="text"
 						placeholder="Enter the Book Price" name="price" class="insert" value="<%=rst.getString("price")%>"/>
 				</div>
 				<% 
 				} 
 				%>
 
-				<button type="submit" class="btn btn-warning">Update</button>
+				<input type="submit" class="btn btn-warning" value="Update"/>
 				<a href="../JSP/admin.jsp" class="btn btn-default">Back</a>
 			</form>
 

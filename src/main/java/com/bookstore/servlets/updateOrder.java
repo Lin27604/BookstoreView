@@ -14,16 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.bookstore.model.DAOImp;
 
 /**
- * Servlet implementation class resMessageServlet
+ * Servlet implementation class updateOrder
  */
-@WebServlet("/JSP/updateMess")
-public class resMessageServlet extends HttpServlet {
+@WebServlet("/JSP/updateOrder")
+public class updateOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public resMessageServlet() {
+    public updateOrder() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,26 +33,28 @@ public class resMessageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	//	response.getWriter().append("Served at: ").append(request.getContextPath());
-		String operation = request.getParameter("operation");
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String operation = request.getParameter("op");
 		String id = request.getParameter("id");
 		response.setContentType("text/html;charset=UTF-8");
 		 DAOImp daoImp = new DAOImp();
-			Connection conn = daoImp.getConn();
+		Connection conn = daoImp.getConn();
 		PrintWriter out = response.getWriter();
 		System.out.println(id);
 		System.out.println(operation);
 		try {
-			String sql= "UPDATE message SET Status= ? where idmesage =? ";
+			String sql= "UPDATE order_tb SET status= ? where id =? ";
 			PreparedStatement psmt = conn.prepareStatement(sql);
 			psmt.setString(1, operation);
 			psmt.setString(2, id);
 			daoImp.updateData(psmt);
-            response.sendRedirect("responseMessage.jsp");
+            response.sendRedirect("orderOperation.jsp");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
+
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

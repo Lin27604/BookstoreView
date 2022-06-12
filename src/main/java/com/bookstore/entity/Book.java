@@ -10,14 +10,14 @@ public class Book {
     private String ISBN;
     private String publisher;
     private String editionNumber;
-    private double price;
+    private String price;
 
     public Book() {
 
         // TODO Auto-generated constructor stub
     }
 
-    public Book(String category, String title, String author, String iSBN, String publisher, String editionNumber, double price) {
+    public Book(String category, String title, String author, String iSBN, String publisher, String editionNumber, String price) {
         this.category = category;
         this.title = title;
         this.author = author;
@@ -29,7 +29,7 @@ public class Book {
 
 
     public Book(int id, String category, String title, String author, String iSBN, String publisher,
-			String editionNumber, double price) {
+			String editionNumber, String price) {
 		super();
 		this.id = id;
 		this.category = category;
@@ -96,11 +96,11 @@ public class Book {
         this.editionNumber = editionNumber;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price =price;
     }
 

@@ -1,7 +1,12 @@
+<%@page import="java.sql.SQLException"%>
 <%@page import="com.bookstore.entity.UserAccount"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
-    import="java.text.DecimalFormat"
+    import="com.bookstore.helper.BookHelper"
+	 import="java.sql.PreparedStatement" import= "java.sql.ResultSet"
+	import="com.bookstore.model.DAOImp" import="java.sql.Connection"
+	import ="com.bookstore.entity.Book"
+	 import="java.text.DecimalFormat"
     import="java.util.*"
     import="com.bookstore.helper.*"
     import="com.bookstore.entity.*"%>
@@ -24,21 +29,10 @@
 				
 			</h1>
 
-			<table style="margin-left: 1450px">
-				<tr>
-				
-					<th><a href="<%= path %>/JSP/home.jsp"><button class="mybtn">Home</button></a></th>
-					<th><a href="<%= path %>/JSP/order.jsp"><button class="mybtn">Order</button></a></th>
-					<th><a href="<%= path %>/JSP/message.jsp"><button class="mybtn">Message</button></a></th>
-					
-					<th><a href="<%= path %>/JSP/cart.jsp" class="mybtn">Go
-								to Cart<span class="badge badge-danger">${cart_list.size()}</span></a></th>
-								<form action="logout">
-						<th><input type="submit" value="logout" class="mybtn">
-						</th>
-					</form>
-				</tr>
-			</table>
+			
+					<a href="admin.jsp"><button class="mybtn">Home</button></a>
+						
+			
 		</div>
 		
 	</header>
@@ -54,15 +48,11 @@
 	if(user !=null){
 	
 		OrderHelper oHelper = new OrderHelper();
-		orders= oHelper.orderList(user);
+		orders= oHelper.AllorderList();
 		
 	}
 	else{
 		response.sendRedirect("login.jsp");
-	}
-	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-	if (cart_list != null) {
-		request.setAttribute("cart_list", cart_list);
 	}	
 %>
 
@@ -71,7 +61,7 @@
 		<table class="books">
 			<thead>
 				<tr>
-					
+					<th scope="col">Buyer</th>
 					<th scope="col">Title</th>
 					<th scope="col">Quantity</th>
 					<th scope="col">Price</th>
@@ -79,25 +69,32 @@
 					<th scope="col">Status</th>
 				</tr>
 			</thead>
-			<tbody>
-			
-			<%
+			  <tbody>
+  <%
 			if(orders != null){
 				for(Order o:orders){%>
 					<tr>
-						
+						<td><%=o.getUser()%></td>
 						<td><%=o.getTitle()%></td>
 						<td><%=o.getQunatity() %></td>
 						<td><%=o.getPrice()%></td>
 						<td><%=o.getDate()%></td>
-						<td><%=o.getStatus()%></td>
-						
+						 <td><form action="updateOrder"><select name="op">
+      
+      <option >Processing</option>
+      <option >Completed</option>
+      
+      </select>
+      <input type="hidden" value="<%=o.getId()%>" name="id"/>
+      <input type="submit" class="btn btn-success" value="Upadte"/></td>
+			</form>			
 					</tr>
 				<%}
 			}
 			%>
-			
-			</tbody>
+    <tr>
+
+  </tbody>
 		</table>
 	</div>
 

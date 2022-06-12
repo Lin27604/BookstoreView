@@ -35,9 +35,9 @@
 			<table style="margin-left: 1450px">
 				<tr>
 				
-					<th><a href="home.jsp"><button class="mybtn">Home</button></a></th>
-					<th><a href="order.jsp"><button class="mybtn">Order</button></a></th>
-					<th><a href="message.jsp"><button class="mybtn">Message</button></a></th>
+					<th><a href="<%= path %>/JSP/home.jsp"><button class="mybtn">Home</button></a></th>
+					<th><a href="<%= path %>/JSP/order.jsp"><button class="mybtn">Order</button></a></th>
+					<th><a href="<%= path %>/JSP/message.jsp"><button class="mybtn">Message</button></a></th>
 					
 					<th><a href="<%= path %>/JSP/cart.jsp" class="mybtn">Go
 								to Cart<span class="badge badge-danger">${cart_list.size()}</span></a></th>
@@ -54,7 +54,7 @@
 	<hr>
 	
 <div style="margin-right: 1000px">
-		<form action="home.jsp" method ="get">
+		<form action="<%= path %>/JSP/home.jsp" method ="get">
 					<input type="text" placeholder="Search Here..." name="q" class="input"/>
 		     </form>
 		     </div>
@@ -123,7 +123,7 @@
 						</td>
 
 						<td>
-							<a href="add-to-cart?id=<%=rst.getString("id")%>" class="btn btn-primary">ADD TO Cart</a>
+							<a href="<%= path %>/add-to-cart?id=<%=rst.getString("id")%>" class="btn btn-primary">ADD TO Cart</a>
 							
 							
 						</td>

@@ -47,10 +47,10 @@ public class LoginServlet extends HttpServlet {
 		String pswd = request.getParameter("psw");
 		PrintWriter out = response.getWriter();
 		RegisterHelper helper = new RegisterHelper();
-
+		StringBuffer path = new StringBuffer(request.getContextPath());
 		HttpSession session = request.getSession();
-		RequestDispatcher success = request.getRequestDispatcher("../JSP/home.jsp");
-		RequestDispatcher admin = request.getRequestDispatcher("../JSP/admin.jsp");
+		RequestDispatcher success = request.getRequestDispatcher("JSP/home.jsp");
+		RequestDispatcher admin = request.getRequestDispatcher("/JSP/admin.jsp");
 	
 		
 		

@@ -2,25 +2,27 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<% StringBuffer path = new StringBuffer(request.getContextPath());
+%>
 <head>
-<link rel="stylesheet" href="../View/bookstore.css">
-<script type="text/javascript" src="../View/bookstore.js"></script>
+<link rel="stylesheet" href="<%= path %>/View/bookstore.css">
+<script type="text/javascript" src="<%= path %>/View/bookstore.js"></script>
 <meta charset="ISO-8859-1">
 <title>Online BookStore</title>
 </head>
-<% StringBuffer path = new StringBuffer(request.getContextPath());%>
+
 <body>
 	<header class="header">
 		<div class="btn1">
 			<img
-				src="../View/book-tree-520x520.jpg"
+				src="<%= path %>/View/book-tree-520x520.jpg"
 				class="homeimg" onclick="clickimage()" />
 
 			<h1>
 				<center>Online BookStore</center>
 			</h1>
-			<a href="../index.jsp"><button class="mybtn">Home</button></a> 
-			<a href="register.jsp"> <button class="mybtn">Register</button></a>
+			<a href="<%= path %>/index.jsp"><button class="mybtn">Home</button></a> 
+			<a href="<%= path %>/JSP/register.jsp"> <button class="mybtn">Register</button></a>
 		</div>
 
 	</header>

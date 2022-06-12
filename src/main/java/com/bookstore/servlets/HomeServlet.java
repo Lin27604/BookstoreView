@@ -37,7 +37,7 @@ public class HomeServlet extends HttpServlet {
 		String appName = getServletContext().getInitParameter("appName");
 		String pageName = getServletConfig().getInitParameter("pageName");
 		
-		
+		StringBuffer path = new StringBuffer(request.getContextPath());
 		HttpSession session = request.getSession();
 	
 		if(session.getAttribute("logged") != null)
@@ -46,13 +46,13 @@ public class HomeServlet extends HttpServlet {
 			
 			String username = request.getParameter("user");
 			String pswd = request.getParameter("psw");
-			response.sendRedirect("/JSP/home.jsp");
+			response.sendRedirect(path+"/JSP/home.jsp");
 //			PrintWriter out = response.getWriter();
 //			out.write("Entered values are " + username + " " + pswd);
 			
 		}
 		else
-			response.sendRedirect("login.jsp");
+			response.sendRedirect(path+"/JSP/login.jsp");
 		
 	
 		

@@ -33,6 +33,8 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		 StringBuffer path = new StringBuffer(request.getContextPath());
+	
 		String appName = getServletContext().getInitParameter("appName");
 		String pageName = getServletConfig().getInitParameter("pageName");
 		response.setContentType("text/html");
@@ -48,14 +50,14 @@ public class RegisterServlet extends HttpServlet {
 		
 		
 		RequestDispatcher success = request.getRequestDispatcher("login");
-		RequestDispatcher failure = request.getRequestDispatcher("register.jsp");
+		RequestDispatcher failure = request.getRequestDispatcher(path+"/JSP/register.jsp");
 				
 				
 		if(new Controller().register(name, age, username, pswd, pswRepeat, email, phone)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
 			
-			response.sendRedirect("login.jsp");
+			response.sendRedirect(path+"/JSP/login.jsp");
 			
 		}
 		else {

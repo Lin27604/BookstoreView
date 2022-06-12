@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LogoutServlet
  */
-@WebServlet("/JSP/logout")
+@WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,12 +34,12 @@ public class LogoutServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html"); 
 		 PrintWriter out=response.getWriter(); 
-		 
+		 StringBuffer path = new StringBuffer(request.getContextPath());
 		 HttpSession session = request.getSession();
 		 session.invalidate(); 
 		 request.getRequestDispatcher("index.jsp").include(request, response);
-	     System.out.println(request.getContextPath());
-		 out.print("You are successfully logged out!");  
+	    // System.out.println(request.getContextPath());
+		// out.print("You are successfully logged out!");  
 		 
 
 	}

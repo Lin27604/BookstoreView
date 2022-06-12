@@ -61,11 +61,16 @@
       <td ><%=rst.getString("email")%></td>
       <td ><%=rst.getString("comment")%></td>
       <td ><%=rst.getString("date")%></td>
-      <td><select name="operation">
+      
+      <td><form action="updateMess"><select name="operation">
+      
       <option >Waiting</option>
       <option >Responded</option>
-      </select><a href="updateMess?id=<%=rst.getInt("idmesage")%>"class="btn btn-success">Update</a></td>
       
+      </select>
+      <input type="hidden" value="<%=rst.getInt("idmesage")%>" name="id"/>
+      <input type="submit" class="btn mybtn" value="Upadte"/></td>
+      </form>
     </tr>
  <%}
 		} catch (SQLException e) {
